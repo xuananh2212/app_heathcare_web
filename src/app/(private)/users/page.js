@@ -53,6 +53,7 @@ export default function UserPage() {
      }, [visibleColumns]);
 
      const filteredItems = useMemo(() => {
+          console.log("users", users);
           let filteredUsers = [...users];
 
           if (hasSearchFilter) {
@@ -89,17 +90,19 @@ export default function UserPage() {
      }, [sortDescriptor, items]);
 
      const renderCell = useCallback((user, columnKey) => {
+          console.log("columnKey", columnKey);
           const cellValue = user[columnKey];
+          console.log()
 
           switch (columnKey) {
                case "name":
                     return (
                          <User
                               avatarProps={{ radius: "lg", src: user.avatar }}
-                              description={user.email}
+                              // description={user.email}
                               name={cellValue}
                          >
-                              {user.email}
+                              {/* {user.email} */}
                          </User>
                     );
                case "role":

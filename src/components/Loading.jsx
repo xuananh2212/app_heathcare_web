@@ -5,7 +5,7 @@ import {
 
 const Loading = ({ loading }) => {
      return (
-          <div className="flex justify-center items-center h-screen w-screen fixed z-10 bg-[#ffffff7d]">
+          <div className="absolute inset-0 flex justify-center items-center h-screen w-screen z-10 bg-[#ffffff7d]">
                <HashLoader
                     color="#292929" loading={loading} size={150} />
           </div>
