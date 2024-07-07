@@ -1,5 +1,5 @@
 export const columns = [
-     { name: "ID", uid: "id", sortable: true },
+     { name: "STT", uid: "index", sortable: true },
      { name: "TÊN BÁC SĨ", uid: "name", sortable: true },
      { name: "ĐỊA CHỈ", uid: "address", sortable: true },
      { name: "SỐ ĐIỆN THOẠI", uid: "phone" },

@@ -34,7 +34,45 @@ export const doctorSliceApi = createApi({
                     }
                     return [{ type: 'DoctorApi', id: 'LIST' }];
                },
-          })
+          }),
+          addDoctor: builder.mutation({
+               query: (body) => {
+                    return {
+                         url: DOCTOR,
+                         method: 'POST',
+                         headers: {
+                              'Content-Type': 'application/json',
+                         },
+                         body,
+                    };
+               },
+               invalidatesTags: (result, error, body) =>
+                    error ? [] : [{ type: 'DoctorApi', id: 'LIST' }],
+          }),
+          updatedDoctor: builder.mutation({
+               query: ({ id, body }) => {
+                    return {
+                         url: `${DOCTOR}/${id}`,
+                         method: 'PUT',
+                         headers: {
+                              'Content-Type': 'application/json',
+                         },
+                         body,
+                    };
+               },
+               invalidatesTags: (result, error, body) =>
+                    error ? [] : [{ type: 'DoctorApi', id: 'LIST' }],
+          }),
+          deleteDoctor: builder.mutation({
+               query: ({ id }) => {
+                    return {
+                         url: `${DOCTOR}/${id}`,
+                         method: 'DELETE',
+                    };
+               },
+               invalidatesTags: (result, error, body) =>
+                    error ? [] : [{ type: 'DoctorApi', id: 'LIST' }],
+          }),
      })
 
 });
@@ -42,5 +80,8 @@ export const doctorApiReducer = doctorSliceApi.reducer;
 export const doctorApiReducerPath = doctorSliceApi.reducerPath;
 export const doctorApiMiddleware = doctorSliceApi.middleware;
 export const {
-     useGetDoctorsQuery
+     useGetDoctorsQuery,
+     useAddDoctorMutation,
+     useUpdatedDoctorMutation,
+     useDeleteDoctorMutation
 } = doctorSliceApi;

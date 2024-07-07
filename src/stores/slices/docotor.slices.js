@@ -23,7 +23,10 @@ export const doctorSlices = createSlice({
                .addMatcher(
                     doctorSliceApi.endpoints.getDoctors.matchFulfilled,
                     (state, { payload }) => {
-                         state.doctors = payload.data.doctors;
+                         state.doctors = payload.data.doctors.map((doctor, index) => ({
+                              index: index + 1,
+                              ...doctor
+                         }));
                          state.isLoading = false;
                     }
                )

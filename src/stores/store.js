@@ -10,15 +10,18 @@ import {
      doctorApiReducerPath
 } from './slices/api/doctor.slices.api';
 import doctorReducer from './slices/docotor.slices';
+import { uploadApiReducer, uploadApiReducerPath, uploadApiMiddleware } from "./slices/api/upload.slices.api";
 export const store = configureStore({
      reducer: {
           doctor: doctorReducer,
           [authApiReducerPath]: authApiReducer,
-          [doctorApiReducerPath]: doctorApiReducer
+          [doctorApiReducerPath]: doctorApiReducer,
+          [uploadApiReducerPath]: uploadApiReducer,
      },
      middleware: (getDefaultMiddleware) =>
           getDefaultMiddleware()
                .concat(authApiMiddleware)
                .concat(doctorApiMiddleware)
+               .concat(uploadApiMiddleware)
      ,
 });
