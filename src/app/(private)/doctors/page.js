@@ -91,8 +91,6 @@ const Doctor = () => {
                setPage(page + 1);
           }
      }, [page, pages]);
-     console.log("limit", limit)
-
      const onPreviousPage = useCallback(() => {
           if (page > 1) {
                setPage(page - 1);
@@ -232,13 +230,12 @@ const Doctor = () => {
                </span>
                <Pagination
                     isCompact
-                    page={page}
-                    pages={pages}
                     showControls
                     showShadow
                     color="primary"
+                    page={page}
+                    total={pages}
                     onChange={setPage}
-
                />
                <div className="hidden sm:flex w-[30%] justify-end gap-2">
                     <Button onPress={onPreviousPage} isDisabled={pages === 1} size="sm" variant="flat">
