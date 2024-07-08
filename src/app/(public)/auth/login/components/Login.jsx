@@ -33,15 +33,15 @@ const Login = () => {
 
      return (
           // <Loading />
-          <div className='w-full py-10 flex justify-center items-center h-screen'>
+          <div className='flex items-center justify-center w-full h-screen py-10'>
 
-               <div className="w-1/2 h-screen hidden lg:block">
+               <div className="hidden w-1/2 h-screen lg:block">
                     <Image
                          src="http://res.cloudinary.com/daxftrleb/image/upload/v1719846332/heathcare/smnwwvpdhpvvpvq2vvji.avif"
                          alt="Placeholder Image"
-                         className="object-cover w-full object-right-top h-screen" />
+                         className="object-cover object-right-top w-full h-screen" />
                </div>
-               <div className='lg:p-12 md:p-52 sm:20 p-8 w-full lg:w-1/2 flex items-center justify-center'>
+               <div className='flex items-center justify-center w-full p-8 lg:p-12 md:p-52 sm:20 lg:w-1/2'>
                     <div className='w-[80%] p-6 shadow-lg shadow-cyan-500/50 rounded-lg'>
                          <div className='flex items-center justify-center'>
                               <Image
@@ -90,7 +90,7 @@ const Login = () => {
                               <Button
                                    size="lg"
                                    type='submit'
-                                   className='block  mx-auto mt-6'
+                                   className='block mx-auto mt-6'
                                    color="danger">
                                    Đăng nhập
                               </Button>

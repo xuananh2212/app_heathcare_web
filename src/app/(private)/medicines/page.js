@@ -1,8 +1,9 @@
 import React from 'react'
+import TableProduct from './TableProduct';
 
 const Medicines = () => {
      return (
-          <div>Medicines</div>
+          <TableProduct/>
      )
 }
 
