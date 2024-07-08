@@ -7,4 +7,7 @@ export const endPointApi = {
   ORDERS: "/orders",
   ORDER: "/order",
   USERS: "/users",
+  DOCTOR: "doctors",
+  BOOK_APPOINTMENT: "book-appointments",
+  UPLOAD_IMAGE: "image",
 };
