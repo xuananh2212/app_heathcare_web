@@ -62,5 +62,6 @@ export const store = configureStore({
       .concat(bookAppointmentApiMiddleware)
       .concat(productApiMiddleware)
       .concat(cartApiMiddleware)
-      .concat(articleApiMiddleware),
+      .concat(articleApiMiddleware)
+      .concat(userApiMiddleware),
 });
