@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import TableArticles from "./TableArticles";
 
 const Articles = () => {
-     return (
-          <div>Articles</div>
-     )
-}
+  return <TableArticles />;
+};
 
-export default Articles
+export default Articles;
