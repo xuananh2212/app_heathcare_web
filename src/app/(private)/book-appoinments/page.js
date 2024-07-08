@@ -14,19 +14,18 @@ import {
      Select,
      SelectItem
 } from '@nextui-org/react';
-import { SearchIcon } from '../users/components/SearchIcon';
-import { ChevronDownIcon } from '../users/components/ChevronDownIcon';
-import { PlusIcon } from '../users/components/PlusIcon';
+import { SearchIcon } from '@/components/SearchIcon';
+import { ChevronDownIcon } from '@/components/ChevronDownIcon';
+import { PlusIcon } from '@/components/PlusIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { capitalize } from '../users/utils/capitalize';
-import { VerticalDotsIcon } from '../users/components/VerticalDotsIcon';
+import { capitalize } from '@/utils/capitalize';
+import { VerticalDotsIcon } from '@/components/VerticalDotsIcon';
 import { columns } from './configs/columns.configs';
 import { useForm } from 'react-hook-form';
 import moment from 'moment';
 import { useDropzone } from 'react-dropzone';
 import { toast } from 'sonner';
-import { useUploadImageMutation } from '@/stores/slices/api/upload.slices.api';
 import _ from 'lodash';
 import { useDeleteBookAppointmentMutation, useGetBookAppointmentsQuery, useUpdatedBookAppointmentsMutation } from '@/stores/slices/api/book-appointment.slices.api';
 import { bookAppointmentStates } from '@/stores/slices/book-appointment.slices';

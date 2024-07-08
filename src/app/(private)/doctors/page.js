@@ -14,16 +14,15 @@ import {
      Select,
      SelectItem
 } from '@nextui-org/react';
-import { SearchIcon } from '../users/components/SearchIcon';
-import { ChevronDownIcon } from '../users/components/ChevronDownIcon';
-import { PlusIcon } from '../users/components/PlusIcon';
+import { SearchIcon } from '@/components/SearchIcon';
+import { ChevronDownIcon } from '@/components/ChevronDownIcon';
+import { PlusIcon } from '@/components/PlusIcon';
 import { useDispatch, useSelector } from 'react-redux';
 import { doctorState, setDoctors } from '@/stores/slices/docotor.slices';
 import { useAddDoctorMutation, useDeleteDoctorMutation, useGetDoctorsQuery, useUpdatedDoctorMutation } from '@/stores/slices/api/doctor.slices.api';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import TopContent from './components/TopContent';
-import { capitalize } from '../users/utils/capitalize';
-import { VerticalDotsIcon } from '../users/components/VerticalDotsIcon';
+import { capitalize } from '@/utils/capitalize';
+import { VerticalDotsIcon } from '@/components/VerticalDotsIcon';
 import { columns } from './configs/columns.configs';
 import { formatVND } from './utils/formatVND';
 import { useForm } from 'react-hook-form';
@@ -32,7 +31,6 @@ import { useDropzone } from 'react-dropzone';
 import { groupDoctors } from './configs/groupdoctor';
 import { toast } from 'sonner';
 import { useUploadImageMutation } from '@/stores/slices/api/upload.slices.api';
-import Loading from '@/components/Loading';
 import _ from 'lodash';
 
 const Doctor = () => {

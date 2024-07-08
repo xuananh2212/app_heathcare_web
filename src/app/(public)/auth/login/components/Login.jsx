@@ -8,26 +8,40 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
+import _ from 'lodash';
 
 const Login = () => {
      const router = useRouter();
      const { register, handleSubmit, formState: { errors } } = useForm();
      const [postLogin] = usePostLoginMutation();
+     const dataLogin = {
+          name: "admin",
+          password: "12345678"
+     }
      const onSubmit = async (data) => {
-          try {
-               const res = await postLogin(data).unwrap();
-               if (res.status === 200) {
-                    toast.success("Đăng nhập thành công");
-                    Cookies.set('login', 'true', { expires: 7 }); // 
-                    const previousPage = router.query?.redirect || '/';
-                    router.push(previousPage);
-               }
+          // try {
+          //      const res = await postLogin(data).unwrap();
+          //      if (res.status === 200) {
+          //           toast.success("Đăng nhập thành công");
+          //           Cookies.set('login', 'true', { expires: 7 }); //
+          //           const previousPage = router.query?.redirect || '/';
+          //           router.push(previousPage);
+          //      }
 
-          } catch (e) {
-               console.log(e);
-               toast.error(e?.data?.message || "lỗi máy chủ")
+          // } catch (e) {
+          //      console.log(e);
+          //      toast.error(e?.data?.message || "lỗi máy chủ")
 
+          // }
+          if (_.isEqual(dataLogin, data)) {
+               toast.success("Đăng nhập thành công");
+               Cookies.set('login', 'true', { expires: 7 }); //
+               const previousPage = router.query?.redirect || '/';
+               router.push(previousPage);
+          } else {
+               toast.error("Tài khoản và mật khẩu không chính xác");
           }
+
 
      };
 
@@ -65,15 +79,15 @@ const Login = () => {
 
                          >
                               <Input
-                                   {...register('email', { required: 'Email không được rỗng' })}
+                                   {...register('name', { required: 'name không được rỗng' })}
                                    isRequired
-                                   key={'email'}
-                                   type="email"
-                                   label="Email"
+                                   key={'name'}
+                                   type="name"
+                                   label="name"
                                    labelPlacement={'inside'}
-                                   error={errors.email ? true : false}
+                                   error={errors.name ? true : false}
                               />
-                              {errors.email && <p className='text-[red] p-2'>{errors.email.message}</p>}
+                              {errors.name && <p className='text-[red] p-2'>{errors.name.message}</p>}
                               <Input
                                    {...register('password', { required: 'Mật khẩu không được rỗng' })}
                                    isRequired
