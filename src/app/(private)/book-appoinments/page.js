@@ -228,6 +228,8 @@ const Doctor = () => {
                     return <Chip color="success">Đã xác nhận</Chip>;
                case "rejected":
                     return <Chip color="danger">Từ chối</Chip>;
+               case "accepted":
+                    return <Chip color="default">Đã đặt</Chip>;
                default:
                     return <Chip color="default">{string}</Chip>;
           }
